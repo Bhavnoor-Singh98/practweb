@@ -1,0 +1,223 @@
+<!--Using Card-->
+
+<!DOCTYPE html>
+ <html lang="en">
+   <head>
+     <meta charset="utf-8" />
+     <meta
+       name="viewport"
+       content="width=device-width, initial-scale=1, shrink-to-fit=no"
+     />
+
+     <!-- Bootstrap CSS -->
+     <link
+       rel="stylesheet"
+       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+     />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <title>Nice Admin Template</title>
+   </head>
+
+   <body>
+     <!-- es waale nav nu sabto bahar rakhna h but wrapper de andar rakhna h or we can say any parent div(jisde andar saare rehn waale ne!) with positioned -> fixed -->
+     <div class="wrapper"
+       id="parent-div"
+       style="display: flex; flex-direction: column">
+     <!--vh means 100vh= 100% height of viewport-->
+       <nav
+         class="navbar bg-primary"
+         style="padding: 10px; min-height: 100vh; width: 12rem!important ; position: fixed;">
+
+         <ul class="nav navbar-nav text-light" id="accordionSidebar">
+           <li class="nav-item" role="presentation">
+             <a class="nav-link">
+               <!--Font name-->
+               <i class="fas fa-tachometer-alt"></i>
+               <span>Dashboard</span>
+             </a>
+           </li>
+           <li class="nav-item" role="presentation">
+             <a class="nav-link">
+               <span>Sidebar Types</span>
+             </a>
+           </li>
+           <li class="nav-item" role="presentation">
+             <a class="nav-link">
+               <span>Layout Types</span>
+             </a>
+           </li>
+           <li class="nav-item" role="presentation">
+             <a class="nav-link">
+               <span>Chat Apps</span>
+             </a>
+           </li>
+           <li class="nav-item" role="presentation">
+             <a class="nav-link">
+               <span>Todo</span>
+             </a>
+           </li>
+           <li class="nav-item" role="presentation">
+             <a class="nav-link">
+               <span>Calendar</span>
+             </a>
+           </li>
+           <li class="nav-item" role="presentation">
+             <a class="nav-link">
+               <span>Notes</span>
+             </a>
+           </li>
+         </ul>
+       </nav>
+       <div class="clasmain">
+         <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light">
+           <a class="navbar-brand" href="#">Nice Admin</a>
+           <button
+             class="navbar-toggler"
+             type="button"
+             data-toggle="collapse"
+             data-target="#NavTog"
+             aria-controls="NavTog"
+             aria-expanded="false"
+             aria-label="Toggle navigation">
+
+             <span class="navbar-toggler-icon"></span>
+           </button>
+
+           <div class="collapse navbar-collapse" id="NavTog">
+             <ul class="navbar-nav ml-auto">
+               <li class="nav-item">
+                 <a class="nav-link" href="#">Mess</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#">Noti</a>
+              </li>
+              <li class="nav-item dropdown">
+                <img
+                  src="E:\Webproject\Bootpractproj\favicon (1).ico"
+                  alt="Profile Picture"
+                />
+                <a
+                  class="nav-link dropdown-toggle "
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="true" >Jonathon Doe</a>
+            <!--dropdown right-->
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">My Profile</a>
+                  <a class="dropdown-item" href="#">My balance</a>
+                  <a class="dropdown-item" href="#">Inbox</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Account Setting</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Logout</a>
+                  <div class="dropdown-divider"></div>
+                  <button type="button" class="btn btn-success btn-sm" style="margin: 10px 25px 5px 25px">
+                    View Profile
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page" style="padding-left: 208px;"><span style="font-size: 25px;">Home</span></li>
+  </ol>
+</nav>
+
+        <!--Creating chart-->
+<!--        <div class="container" style="padding: 18px 5px 10px 138px;"> -->
+        <div class="card ml-auto" style="width: 72rem; ">
+        <div class="card-body">
+
+
+              <div class="container">
+        <canvas id="myChart" > </canvas>
+        </div>
+        <!--Creating Variable for our chart-->
+        <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+//Global options
+          Chart.defaults.global.defaultFontFamily ='Lato';
+          Chart.defaults.global.defaultFontSize =18;
+          Chart.defaults.global.defaultFontColor ='#777';
+    let massPopChart = new Chart(myChart,{
+      type:'pie', // bar, horizontalBar, pie, line,doughnut,radar
+       data:{
+        labels:['Amritsar','Jalandhar','Chandigarh','Patiala','Ferozepur','Mohali'],
+        datasets:[{
+          label:'population 2011',
+          data:[
+          1132761,
+          862196,
+          960787,
+          445196,
+          110091,
+          146104
+          ],
+          backgroundColor:[
+              'red',
+              '#33cccc',
+              'green',
+              '#ff66ff',
+              'blue',
+              'maroon'
+          ],
+          borderWidth: 1,
+          borderColor:'#777',
+          hoverBorderWidth: 3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+          title:{
+              display:true,
+              text: 'Urban Agglomerations Constituents Population 2011 Census',
+              fontSize: 25
+          },
+          legend:{
+              display:true,
+              position:'right',
+              labels:{
+                  fontColor:'#000'
+              }
+          },
+          layout:{
+              padding:{
+                   left:50,
+                   right:0,
+                   bottom:0,
+                   top:0
+              }
+          },
+          tooltips:{
+              //to disable tooltips over each column
+              enabled:true
+          }
+      }
+    });
+  </script>
+    <br>
+          <p>Once Bootstrap is developed to be mobile first, we use a handful of media queries to create
+             sensible breakpoints for our layouts and interfaces. These breakpoints are mostly based on
+             minimum viewport widths and allow us to scale up elements as the viewport changes.
+             Bootstrap primarily uses the following media </p>
+        </div>
+        </div>
+       </div>
+    </div>
+     <!-- Optional JavaScript -->
+     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   </body>
+ </html>
